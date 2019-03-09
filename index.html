@@ -1,0 +1,233 @@
+<html>
+<head>
+  <style>
+
+body {font-family: courier; margin: 10%;font-weight:bold; background-color: #FCFCFC;text-align:center;}
+input {font-family: courier; font-weight:bold; font-size: 100%; text-align: center;}
+button {font-family: Quicksand; background:black; color: white; border:none; font-size: 100%}
+.thick_line {height:10px; background-color: black; border-color: black;}
+textarea{width: 100%; font-family: courier; font-weight:bold; font-size: 100%;}
+.ti{width: 100%}
+hr{height:2px; background-color: black; border-color: black;}
+table{border-collapse: collapse; border: 1px solid black; margin-left:auto;
+    margin-right:auto;}
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>MAKE BALLOTS</h1>
+
+<hr>
+
+<h2>BALLOT</h2>
+<p>Enter the ballot name.</p>
+
+<input id="ballot_name" value="MAYOR OF SPRINGFIELD" class = 'ti'></input>
+
+<hr>
+
+<h2>CANDIDATES</h2>
+
+<p >Enter the candidate names, separated with new lines.</p>
+<textarea id = "candidates" rows = 10;></textarea>
+
+<hr>
+
+<h2>COLUMNS</h2>
+
+<p>Enter the column names, separated with spaces.</p>
+
+<input id="columns" value = "0 1 2 3 4" class = 'ti'>
+
+
+<p style = "font-weight:normal">To implement a voting method, copy<br> and paste the input from the table.</p>
+
+<table>
+    <tr>
+      <th>Method</th>
+      <th>Input</th>
+    </tr>
+    <tr>
+      <td>score</td>
+      <td>.00 .25 .50 .75 1.0</td>
+    </tr>
+    <tr>
+      <td>up-down</td>
+      <td>0 1</td>
+    </tr>
+    <tr>
+      <td>ranked-choice</td>
+      <td>5th 4th 3rd 2nd 1st </td>
+    </tr>
+    <tr>
+      <td>approval or conventional</td>
+      <td>(leave input blank)</td>
+    </tr>
+</table>
+
+<hr>
+
+<h2>INSTRUCTIONS</h2>
+
+<textarea id = "instructions" rows = 10;></textarea>
+
+<hr>
+
+<h2>NUMBER OF BALLOTS</h2>
+
+  <input id="n_ballots" type="number"  value="4" min="1" oninput="validity.valid||(value='');" class = 'ti'>
+
+<hr>
+
+<h2>RANDOMIZE?</h2>
+
+<input type="checkbox" id="rando" checked>
+Print candidates in a random order.
+
+<hr>
+<h2>PRINT</h2>
+
+<p>Download coded ballots.</p>
+
+
+<h2><button style = "border-radius: 10px" onclick = "print_ballot()">
+&nbsp .pdf &nbsp
+</button></h2>
+
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+<!--<script type="text/javascript" src="jspdf153.min.js"> </script>-->
+
+
+<script type="text/javascript">
+
+document.getElementById('candidates').value =
+'JOE QUIMBY\nHOMER SIMPSON\nMARGE SIMPSON\nLISA SIMPSON\nBART SIMPSON\nRALPH WIGGUM\nC MONTGOMERY BURNS\nHANS MOLEMAN\nROBERT TERWILLIGER JR';
+
+document.getElementById('instructions').value =
+'For each row, fill out a single circle to give the candidate a score:\n\n* 0 for your least preferred candidate(s)\n* 4 for your most preferred candidate(s) \n* 1 or 2 or 3 for intermediate candidate(s)\n* Leave the row blank to abstain.\n\nMore information about the candidates and the election is here:\n\nfakesite.gov/mayor-of-sprinfield\n\nKeep the codes below to verify your vote later.';
+
+  function print_ballot(){
+
+      var ballot_name = document.getElementById('ballot_name').value;
+      var candidate_array = document.getElementById('candidates').value.split(/\n/);
+      var column_array = document.getElementById('columns').value.trim().split(/\s+/);
+      var instructions = document.getElementById('instructions').value;
+      var n_ballots = document.getElementById('n_ballots').value;
+      var rando = document.getElementById('rando').checked;
+
+      var ballot_codes = make_codes(n_ballots, 20);
+      var ownership_codes = make_codes(n_ballots, 20);
+
+      var pw = 8.5;
+      var ph = 11;
+      var row_height = .75;
+      var col_width = .4;
+      var margin = 1;
+      var circle_size = .015;
+      var candidates_per_page = 8;
+
+      var doc = new jsPDF({
+        orientation: 'p',
+        unit: 'in',
+        format: 'letter'
+      });
+
+      doc.setFont( "courier" );
+      doc.setFontSize( 24 );
+
+      doc.text(pw/2, ph/2, "BLANK ON PURPOSE", align = 'center');
+
+      doc.addPage();
+      doc.setFontSize(24);
+      doc.text(pw/2, 1, "PAIRED CODES(1/1)", align = 'center');
+      doc.setFontSize(16);
+      doc.text(1, 2, ownership_codes);
+      doc.text(pw/2, 2, ballot_codes);
+
+      for (var i = 0; i < n_ballots; i++){
+
+        doc.addPage();
+        doc.setFontSize(24);
+        doc.text(pw/2, 1, "INSTRUCTIONS", align = 'center');
+        doc.setFontSize(16);
+        var insplit = doc.splitTextToSize(instructions, 6.5);
+        doc.text(1,2, insplit, align = 'left');
+        doc.setLineWidth(.02);
+        doc.line(1, 7, 7.5, 7);
+        doc.text(pw/2, 8, "BALLOT CODE:", align = 'center');
+        doc.text(pw/2, 8.5, ballot_codes[i], align = 'center');
+        doc.text(pw/2, 9.5, "OWNERSHIP CODE:", align = 'center');
+        doc.text(pw/2, 10, ownership_codes[i], align = 'center');
+
+        doc.addPage();
+        doc.setFontSize(24);
+        doc.text(pw/2, 1, ballot_name, align = 'center');
+
+        for (k = 0; k < column_array.length; k++){
+          doc.setFontSize(10);
+          doc.text(1 + (k+1)*col_width,2,column_array[k], align = 'center')
+          }
+
+        if (rando){
+            shuffle(candidate_array);
+        }
+
+        doc.setLineWidth(.02);
+        doc.line(1, 2.5 - row_height/2, 7.5, 2.5 - row_height/2);
+
+        for (var j = 0; j < candidate_array.length; j++){
+          var row_center = 2.5 + j*row_height;
+          doc.setLineWidth(.02);
+          doc.line(1, row_center + row_height/2, 7.5, row_center + row_height/2);
+          doc.setFontSize(20);
+          doc.text(margin + (column_array.length+2)*col_width, row_center + .06, candidate_array[j]);
+
+          for (k = 0; k < column_array.length; k++){
+            doc.setLineWidth(.1);
+            doc.circle(1 + (k+1)*col_width, row_center, circle_size)
+          }
+        }
+        doc.setLineWidth(.02);
+        doc.roundedRect(2.25, 9.4, 4, .5, .1, .1);
+        doc.setFontSize(20);
+        doc.text(pw/2, 9.72, ballot_codes[i], align = 'center');
+      }
+      doc.save('ballot.pdf');
+}
+
+function make_codes(n, code_length){
+  //make an array of of n unique, random codes, each code_length long
+  code_list = [];
+  while (code_list.length < n){
+    var sc = single_code(code_length);
+    if (!(code_list.includes(sc)))
+      {code_list.push(sc);}
+      }
+  return code_list;
+}
+
+function single_code(code_length){
+  var text = "";
+  var possible = "0123456789";
+  for (var i = 0; i < code_length; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  return text;
+}
+
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+</script>
+</body>
+</html>
