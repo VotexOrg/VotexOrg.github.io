@@ -1,8 +1,11 @@
 # VotexOrg.github.io
 
-Votex is a voting system designed to create vorter-verifiable paper ballots. Votex supports alternative voting methods including ranked choice and score voting as well as conventional first-past-the-post voting.
+Votex is a voting system designed to create end-to-end voter-verifiable paper ballots. Votex supports alternative voting methods including ranked choice and score voting as well as conventional first-past-the-post voting.
 
-Votex is built around the following procedure:
+Votex is built around the procedure below.
+
+( [This app](https://votexorg.github.io/) can be used to create ballots, as described in steps 2 and 3. )
+
 
 **1**
 
