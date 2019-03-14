@@ -6,11 +6,13 @@ Votex is built around the procedure below.
 
 ( [This app](https://votexorg.github.io/) can be used to create ballots, as described in steps 2 and 3. )
 
+---
 
 **1**
 
 The administrator (or committee of administrators) compiles a voter roll.
 
+---
 
 **2**
 
@@ -20,6 +22,7 @@ The administrator (or committee of administrators) compiles a voter roll.
 
 **b.** The administrator prints out the list of valid code pairs and archives the papers in a secure locked box, to be opened after the voting deadline.
 
+---
 
 **3**
 
@@ -27,11 +30,13 @@ The administrator (or committee of administrators) compiles a voter roll.
 
 **b.** For each ballot, administrators print a unique code page containing the corresponding ballot code and ownership code.
 
+---
 
 **4**
 
 The ballot-generating computer is placed in an offline safe for auditing if necessary.
 
+---
 
 **5**
 
@@ -41,6 +46,8 @@ The ballot-generating computer is placed in an offline safe for auditing if nece
 
 **c.** The envelopes are distributed, either by mail or in person at polling stations.
 
+---
+
 **6**
 
 **a.** Voters fill out the enclosed ballot. Or, if election rules allow it, voters may print out a new ballot (using their ballot code), adding write-in candidates if they wish.
@@ -49,6 +56,7 @@ The ballot-generating computer is placed in an offline safe for auditing if nece
 
 **c.** Voters retain their code page if they want to confirm their vote later.
 
+---
 
 **7**
 
@@ -56,6 +64,7 @@ The ballot-generating computer is placed in an offline safe for auditing if nece
 
 **b.** The scanned images are sent to a central server, which interprets the votes.
 
+---
 
 **8**
 
@@ -67,11 +76,13 @@ The ballot-generating computer is placed in an offline safe for auditing if nece
 
 **d.** Each vote also includes a running total of the score. For conventional voting and score voting, the cumulative score after vote (n) is a function of vote (n) and the cumulative score after vote (n-1). This allows decentralized auditors to confirm the tally.
 
+---
 
 **9**
 
 Voters can enter their ballot code online and receive a link to the corresponding vote number. This allows voters to verify that their vote was recorded correctly.
 
+---
 
 **10**
 
