@@ -4,6 +4,7 @@ Votex is a voting system designed to create end-to-end voter-verifiable paper ba
 
 Votex is built around the procedure below.
 
+
 ( [This app](https://votexorg.github.io/) can be used to create ballots, as described in steps 2 and 3. )
 
 ---
@@ -58,6 +59,9 @@ The ballot-generating computer is placed in an offline safe for auditing if nece
 
 ---
 
+NOTE: A more technical implementation plan for steps 7, 8, and 9 can be found under the Issues tab.
+
+---
 **7**
 
 **a.** Ballots are scanned at polling stations and the paper is archived for auditing.
