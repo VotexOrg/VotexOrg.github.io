@@ -1,8 +1,9 @@
 
 @font-face {
     font-family: 'courier';
-    src: url('cour-webfont.woff2') format('woff2'),
-         url('cour-webfont.woff') format('woff');
+    src: url('resources/fonts/Courier New/Courier New.woff2') format('woff2'),
+         url('resources/fonts/Courier New/Courier New.woff') format('woff'),
+         url('resources/fonts/Courier New/Courier New.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -10,9 +11,9 @@
 
 @font-face {
     font-family: 'courier_bold';
-    src: url('fonts/Courier New Bold/Courier New Bold.woff2') format('woff2'),
-         url('fonts/Courier New Bold/Courier New Bold.woff') format('woff'),
-         url('fonts/Courier New Bold/Courier New Bold.ttf') format('truetype');
+    src: url('resources/fonts/Courier New Bold/Courier New Bold.woff2') format('woff2'),
+         url('resources/fonts/Courier New Bold/Courier New Bold.woff') format('woff'),
+         url('resources/fonts/Courier New Bold/Courier New Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 
@@ -21,4 +22,4 @@
 
 
 body {font-family: courier_bold;}
-h1, h2{text-align: center}
+h1, h2{font-family: courier; text-align: center}
