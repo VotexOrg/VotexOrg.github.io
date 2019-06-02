@@ -1,0 +1,159 @@
+<html>
+</head>
+
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<style>
+  body{font-size:14px}
+</style>
+</head>
+
+<body>
+
+  <h1 style = "font-size:4vw"> <a href = "index.html"> VOTE{X} </a> </h1>
+
+  <hr class = "thick_line">
+
+<h2>WHY?</h2>
+<hr class = "thick_line">
+<p></p>
+<hr>
+<h3>TLDR</h3>
+<hr>
+<p>
+Our democracy is ripping itself apart.
+</p><p>
+To save it, we must develop voting systems that value consensus over conflict and trust above all else.
+</p><p>
+  The VOTE{X} system is open-source, paper-based, voter-verifiable, and method-neutral.
+</p>
+<hr>
+<h3>Trust Paper, Not Machines</h3>
+<hr>
+<p>
+Do our existing voting systems inspire trust?
+</p><p>
+The stakes couldn't be higher. The mere suspicion of electoral foul play erodes our confidence in government and democracy itself.
+</p><p>
+Voting systems must be transparent, simple, auditable, and trustworthy. If not, unscrupulous candidates can make unsubstantiated claims that elections are somehow "rigged".
+</p><p>
+In building trust, electronic voting machines fail hard:
+<ul><li>
+    They are not auditable at the macro level. Machines can be silently subverted and restored to remove evidence of manipulation.
+</li><li>
+  They are unverifiable at the micro level. Voters have no way to confirm that their individual votes were counted as cast.
+</li><li>
+  They are opaque. Only the manufacturers know how their proprietary machines operate.
+</li><li>
+  They are hackable at scale. Without a human-readable paper trail, large-scale system-level attacks can ruin elections.
+</li><li>
+  They may be inaccurate, with documented instances of systems behaving badly.
+</li></ul>
+
+<p>
+Despite all this, several states in America use electronic voting machines without paper trails.
+</p><p>
+Paper, by contrast, is tried and true:
+<ul><li>
+Paper is simple and human-readable.
+</li><li>
+Paper happens to be perfectly priced - cheap, but not free. 
+</li><li>
+American taxpayers spend about $300M annually buying and servicing electronic voting machines - tens of dollars per voter per year. Paper costs just pennies per page. (That's good.) But it's also expensive enough to discourage brute-force/DDOS attacks. (That's also good.)
+</li><li>
+Paper is convenient, especially if done via mail, helping voters avoid going to polling stations on rigid dates to wait in long lines.
+</li><li>
+Most importantly, paper is the ideal technology for leaving … umm … paper trails.
+</li></ul>
+<p>
+Paper is no panacea. Mischief can still be done or alleged:
+</p><ul><li>
+counterfeiting or "stuffing" ballots (recently alleged in Bangladesh).
+</li><li>
+intercepting and altering ballots (recently alleged in North Carolina).
+</li><li>
+mismanaging voter rolls (recently alleged in Georgia).
+</li></ul>
+<p>
+Today, votes go into black boxes and voters need some degree of blind faith that their vote was accurately recorded. To win trust, it's not enough for voting systems to be merely accurate. They must be verifiably accurate.
+</p>
+<hr>
+<h3>Consensus, not Conflict</h3>
+<hr>
+<p>Even if we could restore trust in voting, we face an equally pressing problem in our democracy. Our partisan politics is driving us off a cliff. Why?
+</p><p>
+  Like a car swerving from side to side as two drivers wrestle for control of the steering wheel, two-party democracy is an erratic vehicle. The system motivates gerrymandering, concentrates power, feeds polarization, limits choice, and belches out convoluted policies.
+First-past-the-post is the most common form of voting in government elections. This method forces a single vote for a single candidate. The predictable result is a partisan duopoly.
+</p><p>
+In his farewell address, George Washington diagnosed the problem of partisanship as
+</p><p class = quote>
+"unfortunately having its root in the strongest passions of the human mind" [1796]
+</p><p>
+We're more optimistic. We think that the "baneful effects" are rooted in our systems, not in our souls. Luckily, it's easier to patch the former.
+</p>
+<p>Other voting methods have the potential to help us steer a more graceful path. Methods such as score-voting and ranked-choice-voting allow voters to cast votes honestly, judging candidates on their ideas and their character, not their perceived electoral viability.
+</p><p>Score voting is widely used in non-governmental contexts, including:
+</p>
+<ul><li>
+product reviews (think Amazon, Google, and Yelp)
+</li><li>
+Rotten Tomato critic scores
+</li><li>
+Reddit, Hacker News, Medium, etc.
+</li></ul>
+<p>
+Variations of score voting have been naturally observed in creatures as diverse as honey-bees and electrical-engineers.
+</p>
+<hr><h3>
+Introducing VOTE{X}
+</h3><hr>
+<p>
+To address these issues, we developed Vote{X}. It's an open-source framework to help people run secure paper-based elections.
+</p>
+<img width = 75% src = "resources/votex.jpeg" class="center">
+<p>
+The sample ballot pictured above might look different from conventional ballots in two ways:
+</p><p>
+<b class = "bold">1. Ballot Code</b>
+</p><p class = 'quote'>
+At the bottom of the page, there's a unique ballot code. Voters keep a copy of the code as a receipt. After the election, they can anonymously look up their recorded vote to confirm its accuracy.
+</p><p>
+<b class = "bold">2. Ballot Method</b>
+</p>
+<div class = 'quote'>
+<p>
+VOTE{X} supports several voting methods:
+</p><ul>
+  <li>
+Under score voting, each voter gives a numerical rating for each candidate. The candidate with the highest total or average score wins.
+</li><li>
+Under ranked-choice voting, each voter ranks the candidates from best to worst. A procedure such as instant-runoff determines the winner.
+</li><li>
+VOTE{X}  also supports the commonly used first-past-the-post method (each voter gets a single vote).
+</li></ul>
+<p></p>
+</div>
+<hr><h3>
+Conclusion
+</h3><hr>
+<p>
+We must fundamentally reexamine our voting methods if we are to move from the theater of scorched earth to governance on common ground.
+</p><p>
+Thomas Jefferson said
+</p><p class = 'quote'>
+"The tree of liberty must be refreshed from time to time with the blood of patriots and tyrants."[1786]
+</p><p>
+Modern weaponry makes that a bad option nowadays. Let's keep our blood where it belongs - pumping through us, delivering oxygen to our vital organs.
+</p><p>
+Years later, T.J. had mellowed out, understanding that the best revolutions must come peacefully, through continuous improvements in code.
+</p><p class = 'quote'>
+"Laws and institutions must go hand in hand with the progress of the human mind and keep pace with the times. We might as well require a man to wear still the coat which fitted him when a boy as civilized society to remain ever under the regimen of their barbarous ancestors." [1816]
+</p><p>
+Our current voting methods, unchanged for centuries, now fit like straight jackets.
+</p><p>
+But Jefferson's genius was in decentralizing power. The Ninth and Tenth Amendments let the People detoxify our political environment at the roots. Only the election of the President requires a Constitutional Amendment. Congress, governors, mayors, and so on are all elected through systems that can be changed at states and local levels.
+</p><p>
+After all, the grassroots of democracy must be refreshed from time to time with the thoughtful seeds of patriots and philosophers.
+</p>
+<hr class = 'thick_line'>
+
+</html>
