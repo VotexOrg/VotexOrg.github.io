@@ -1,6 +1,9 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <style>
+    body{text-align:center}
+  </style>
 </head>
 
 <body>
@@ -121,7 +124,8 @@ document.getElementById('instructions').value =
       var row_height = .675;
       var col_width = .4;
       var margin = 1;
-      var circle_size = .015;
+      var circle_size_ext = .1;
+      var circle_size_int = .06;
       var start_vert = 2;
 
       //var candidates_per_page = 10;
@@ -193,8 +197,10 @@ document.getElementById('instructions').value =
           doc.text(margin + (column_array.length+2)*col_width, row_center + .06, candidate_array[j]);
 
           for (k = 0; k < column_array.length; k++){
-            doc.setLineWidth(.1);
-            doc.circle(1 + (k+1)*col_width, row_center, circle_size)
+            doc.setFillColor(0,0,0);
+            doc.circle(1 + (k+1)*col_width, row_center, circle_size_ext, 'F');
+            doc.setFillColor(255,255,255);
+            doc.circle(1 + (k+1)*col_width, row_center, circle_size_int, 'F');
           }
         }
 
